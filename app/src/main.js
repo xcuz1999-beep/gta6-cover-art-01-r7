@@ -37,7 +37,10 @@ const stage = $('stage');
 
 function render() {
   const size = SIZES[state.sizeKey];
-  if (stage.width !== size.w) { stage.width = size.w; stage.height = size.h; }
+  if (stage.width !== size.w || stage.height !== size.h) {
+    stage.width = size.w;
+    stage.height = size.h;
+  }
   if (state.photos.length) drawCover(stage.getContext('2d'), size.w, size.h, state);
 }
 
