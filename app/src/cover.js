@@ -343,7 +343,8 @@ export function drawCover(ctx, w, h, state) {
 
   layout.panels.forEach((p, i) => {
     const rect = { x: p.x * w, y: p.y * h, w: p.w * w, h: p.h * h };
-    const img = state.photos[state.panelPhoto[i] ?? 0] ?? state.photos[0];
+    const photo = state.photos[state.panelPhoto[i] ?? 0] ?? state.photos[0];
+    const img = photo?.img ?? photo; // photo records are { img, label }
     if (img) drawPanelPhoto(ctx, img, rect, state.focus[i], grade.filter);
     if (layout.frame === 'neon') {
       ctx.save();
