@@ -189,7 +189,7 @@ function drawMasthead(ctx, w, h, layout, texts) {
   const base = atBottom ? h * 0.90 : h * 0.155;
   ctx.save();
   ctx.transform(1, 0, -0.045, 1, 0, 0); // a whisper of poster italic
-  const size = fitFont(ctx, texts.masthead, h * 0.17, w * 0.94, DISPLAY_FONT, '-1px');
+  const size = fitFont(ctx, texts.masthead, h * 0.16, w * 0.86, DISPLAY_FONT, '-1px');
   ctx.shadowColor = 'rgba(0,0,0,0.45)';
   ctx.shadowBlur = size * 0.12;
   ctx.shadowOffsetY = size * 0.05;
@@ -249,8 +249,8 @@ function drawCoverlines(ctx, w, h, layout, texts) {
 function drawSticker(ctx, w, h, layout, texts) {
   if (!texts.sticker || !texts.sticker.trim()) return;
   const r = Math.min(w, h) * 0.085;
-  const cx = layout.sticker === 'top-right' || layout.sticker === 'right' ? w * 0.915 : w * 0.915;
-  const cy = layout.sticker === 'right' ? h * 0.30 : h * 0.115;
+  const cx = w * 0.90;
+  const cy = layout.sticker === 'right' ? h * 0.30 : h * 0.125;
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate(-0.21);
