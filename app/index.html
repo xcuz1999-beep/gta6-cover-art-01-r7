@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palmera Cover Studio — Vice Heat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VICE HEAT</span>
+    <span class="brand-sub">Palmera Cover Studio</span>
+  </div>
+  <p class="topbar-note">Drop in a photo, pick a layout and a grade, export a cover.</p>
+  <button id="export-btn" class="export-btn" type="button">Export PNG</button>
+</header>
+
+<main class="workspace">
+  <aside class="rail">
+    <section>
+      <h2>Photos</h2>
+      <label class="upload-btn">
+        Add your photo
+        <input id="photo-input" type="file" accept="image/*" multiple hidden>
+      </label>
+      <p class="hint">Your photos stay on your machine — nothing is uploaded.</p>
+      <div id="tray" class="tray"></div>
+    </section>
+    <section>
+      <h2>Panels</h2>
+      <div id="panel-editor"></div>
+      <label class="slider-row">Zoom
+        <input id="zoom" type="range" min="1" max="2.6" step="0.01" value="1">
+      </label>
+      <label class="slider-row">Pan across
+        <input id="pan-x" type="range" min="0" max="1" step="0.01" value="0.5">
+      </label>
+      <label class="slider-row">Pan down
+        <input id="pan-y" type="range" min="0" max="1" step="0.01" value="0.5">
+      </label>
+    </section>
+  </aside>
+
+  <section class="stage-wrap">
+    <canvas id="stage" width="1080" height="1080"></canvas>
+    <p class="hint">Live preview — the export is this cover at full size.</p>
+  </section>
+
+  <aside class="rail">
+    <section>
+      <h2>Layout</h2>
+      <div id="layout-picker" class="chips"></div>
+    </section>
+    <section>
+      <h2>Grade</h2>
+      <div id="grade-picker" class="chips"></div>
+    </section>
+    <section>
+      <h2>Post size</h2>
+      <div id="size-picker" class="chips"></div>
+    </section>
+    <section>
+      <h2>Cover text</h2>
+      <label class="field">Masthead <input id="t-masthead" type="text"></label>
+      <label class="field">Kicker <input id="t-kicker" type="text"></label>
+      <label class="field">Coverline 1 <input id="t-line1" type="text"></label>
+      <label class="field">Coverline 2 <input id="t-line2" type="text"></label>
+      <label class="field">Coverline 3 <input id="t-line3" type="text"></label>
+      <label class="field">Sticker <input id="t-sticker" type="text"></label>
+      <label class="field">Issue line <input id="t-issue" type="text"></label>
+      <label class="field">Banner (Newsstand) <input id="t-banner" type="text"></label>
+    </section>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

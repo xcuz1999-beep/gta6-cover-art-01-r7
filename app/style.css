@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'Palmera Display';
+  src: url('fonts/palmera-display.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #0d0d16;
+  color: #f2f0fa;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #1b1030, #3d1152 55%, #12263d);
+  border-bottom: 2px solid #ff2e88;
+}
+
+.brand { display: flex; flex-direction: column; line-height: 1; }
+.brand-mark {
+  font-family: 'Palmera Display', 'Arial Black', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 0 #ff2e88, 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.brand-sub { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffb3d1; margin-top: 4px; }
+.topbar-note { flex: 1; color: #cfc8e8; font-size: 13px; margin: 0; }
+
+.export-btn {
+  font-family: 'Palmera Display', 'Arial Black', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  color: #14101f;
+  background: #ffd21f;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #b7950b;
+}
+.export-btn:hover { background: #ffdd4d; }
+
+.workspace {
+  display: grid;
+  grid-template-columns: 250px 1fr 270px;
+  gap: 16px;
+  padding: 16px 20px 24px;
+  align-items: start;
+}
+
+.rail section {
+  background: #171726;
+  border: 1px solid #2b2b42;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.rail h2 {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #ff8fbe;
+  margin: 0 0 10px;
+}
+
+.hint { font-size: 12px; color: #9d97b8; margin: 8px 0 0; }
+
+.upload-btn {
+  display: block;
+  text-align: center;
+  background: #ff2e88;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.upload-btn:hover { background: #ff4d9c; }
+
+.tray { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.tray-item { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #d9d4ef; }
+.tray-item img { width: 52px; height: 36px; object-fit: cover; border-radius: 5px; border: 1px solid #3a3a58; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  background: #23233a;
+  color: #d9d4ef;
+  border: 1px solid #3a3a58;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.chip:hover { border-color: #ff2e88; }
+.chip.on { background: #ff2e88; border-color: #ff2e88; color: #fff; font-weight: 600; }
+
+.panel-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.panel-row .panel-name {
+  background: #23233a; color: #d9d4ef; border: 1px solid #3a3a58;
+  border-radius: 6px; padding: 6px 9px; font-size: 12.5px; cursor: pointer; white-space: nowrap;
+}
+.panel-row.on .panel-name { background: #ffd21f; color: #14101f; border-color: #ffd21f; font-weight: 700; }
+.panel-row select {
+  flex: 1; min-width: 0; background: #10101c; color: #f2f0fa;
+  border: 1px solid #3a3a58; border-radius: 6px; padding: 6px; font-size: 12.5px;
+}
+
+.slider-row { display: block; font-size: 12.5px; color: #cfc8e8; margin-top: 9px; }
+.slider-row input { width: 100%; accent-color: #ff2e88; }
+
+.field { display: block; font-size: 12px; color: #9d97b8; margin-bottom: 8px; }
+.field input {
+  display: block; width: 100%; margin-top: 3px;
+  background: #10101c; color: #f2f0fa; border: 1px solid #3a3a58;
+  border-radius: 6px; padding: 7px 8px; font-size: 13px;
+}
+.field input:focus { outline: 1px solid #ff2e88; }
+
+.stage-wrap { text-align: center; }
+#stage {
+  max-width: min(100%, 74vh);
+  max-height: 74vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  background: #101018;
+}
+
+/* Screenshot mode: one composition, full screen, nothing else. */
+body.shot .topbar, body.shot .rail, body.shot .stage-wrap .hint { display: none; }
+body.shot .workspace { display: block; padding: 0; }
+body.shot .stage-wrap { margin: 0; }
+body.shot #stage {
+  width: 100vw; height: 100vh; max-width: none; max-height: none;
+  border-radius: 0; box-shadow: none; display: block;
+}
